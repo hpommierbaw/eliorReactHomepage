@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {Calendar, momentLocalizer} from 'react-big-calendar';
 import moment from 'moment';
 //import 'moment/locale/fr';
-import CustomAgenda from './CustomAgenda'
 
 import $, { event } from 'jquery';
 import {Overlay} from 'react-bootstrap';
@@ -307,7 +306,7 @@ class Tasks extends Component {
             week: false,
             month: false,
             day: false,
-            agenda: CustomAgenda
+            agenda: true
           }}
           components={{
             event: Event
