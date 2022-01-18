@@ -8,7 +8,7 @@ import {Overlay} from 'react-bootstrap';
 import {OverlayTrigger} from 'react-bootstrap';
 import {Popover} from 'react-bootstrap';
 
-import "./App.css";
+import "./Tasks.css";
 
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -88,7 +88,7 @@ function Event({ event }) {
   );
 }
 
-class App extends Component {
+class Tasks extends Component {
 
   constructor(props) {
     super(props);
@@ -280,10 +280,10 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="Tasks">
         <Calendar
           defaultDate={moment().toDate()}
-          defaultView="month"
+          defaultView="agenda"
           events={this.state.events}
           localizer={localizer}
           messages={this.state.defaultMessages}
@@ -385,4 +385,4 @@ class App extends Component {
   }
 };
 
-export default App; 
+export default Tasks; 

@@ -1,9 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import Tasks from './Tasks';
+import PendingTasks from './PendingTasks';
 
-var calendar = ReactDOM.render(
-  <App />,
-  document.getElementsByName('react-control-root')[0]
+var calendarTasks = ReactDOM.render(
+  <Tasks />,
+  document.getElementsByName('react-control-root-tasks')[0]
 );
-window.MyCalendar = calendar;
+window.CalendarTasks = calendarTasks;
+
+var calendarPendingTasks = ReactDOM.render(
+  <PendingTasks />,
+  document.getElementsByName('react-control-root-pendingtasks')[0]
+);
+window.CalendarPendingTasks = calendarPendingTasks;
