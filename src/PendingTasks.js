@@ -8,7 +8,7 @@ import {Overlay} from 'react-bootstrap';
 import {OverlayTrigger} from 'react-bootstrap';
 import {Popover} from 'react-bootstrap';
 
-import "./PendingTasks.css";
+import "./Tasks.css";
 
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
