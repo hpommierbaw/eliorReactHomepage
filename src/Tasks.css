@@ -70,7 +70,7 @@
   font-size: 9pt;
 }
 
-.rbc-calendar .rbc-toolbar .rbc-btn-group:nth-of-type(1),
+.rbc-calendar .rbc-toolbar .rbc-btn-group:nth-of-type(2),
 .rbc-calendar .rbc-toolbar .rbc-toolbar-label {
   display: none !important;
 }
