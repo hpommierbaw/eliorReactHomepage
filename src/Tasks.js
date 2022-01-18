@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Calendar, momentLocalizer} from 'react-big-calendar';
 import moment from 'moment';
 //import 'moment/locale/fr';
+import CustomAgenda from './CustomAgenda'
 
 import $, { event } from 'jquery';
 import {Overlay} from 'react-bootstrap';
@@ -302,6 +303,12 @@ class Tasks extends Component {
               border: '0px'
             }
           })}
+          views={{
+            week: false,
+            month: false,
+            day: false,
+            agenda: CustomAgenda
+          }}
           components={{
             event: Event
           }}
