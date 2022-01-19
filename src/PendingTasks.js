@@ -60,13 +60,6 @@ const defaultMessages_en={
 };
 
 function Event({ event }) {
-  function deleteEventClick(id) {
-    console.log($('span[name="react-control-customData"]'));
-    console.log($('a[name="react-control-deleteEvent-button"]'));
-    $('span[name="react-control-customData"]').text(id);
-    document.getElementsByName("react-control-deleteEvent-button")[0].click();
-  };
-
   let popoverClickRootClose = (
     <Popover id="popover-trigger-click-root-close">
       <Popover.Header as="h3">{event.title}</Popover.Header>
@@ -76,7 +69,6 @@ function Event({ event }) {
         <span>{event.entity}</span><br/>
         <span>{event.site}</span><br/>
         <span>{event.safe}</span><br/>
-        <button onClick={() => deleteEventClick(event.id)}>{event.deleteButtonText}</button>
       </Popover.Body>
     </Popover>
   );
@@ -95,7 +87,7 @@ class PendingTasks extends Component {
     this.state = {defaultCulture: '', defaultMessages: {}, defaultDeleteButtonText:'', events: []};
   };
 
-  refreshEvents() {
+  /*refreshEvents() {
     var eventsArray = [];
     var currentDeleteButtonText = '';
     var currentCulture = '';
@@ -185,31 +177,27 @@ class PendingTasks extends Component {
       eventsArray.splice(0,eventsArray.length); 
     }
     this.setState({events : eventsArray});
-  };
+  };*/
 
   componentDidMount() {
     var eventsArray = [];
     var currentCulture = '';
     var currentDefaultMessages = {};
-    var currentDeleteButtonText = '';
-    if ($('#76a4a86c-fa4b-2ce5-3a59-e321023199b1_12e84390-7a82-8126-cb31-716bc0e84d1c .input-control span').html()=='FR'){
+    if ($('#4fc81828-2dd7-683c-153b-760f79d3f694_67e9243d-d6fd-fbb4-991c-f23e3eff15de .input-control span').html()=='FR'){
     //if (/^fr\b/.test(navigator.language)) {
       currentCulture = 'fr';
       currentDefaultMessages = defaultMessages_fr;
-      currentDeleteButtonText = 'SUPPRIMER';
     }else{
       currentCulture = 'en';
       currentDefaultMessages = defaultMessages_en;
-      currentDeleteButtonText = 'DELETE';
     }
     
-    $('div[name="CalendarDataTable"] .grid-body .grid-body-content tr').not('.empty-grid').each(function(){
+    $('div[name="homepageTasksList"] .grid-body .grid-body-content tr').not('.empty-grid').each(function(){
       var $this = $(this);
       this.event = new Object;
       var my_self = this;
       $this.children("td").each(function( idx ) {
         my_self.event.allDay=true;
-        my_self.event.deleteButtonText=currentDeleteButtonText;
         switch(idx){
           //ID
           case 0:
@@ -275,7 +263,7 @@ class PendingTasks extends Component {
       });
       eventsArray.push(this.event);
     });
-    this.setState({defaultCulture: currentCulture, defaultMessages: currentDefaultMessages, defaultDeleteButtonText: currentDeleteButtonText, events : eventsArray});
+    this.setState({defaultCulture: currentCulture, defaultMessages: currentDefaultMessages, events : eventsArray});
   };
 
   render() {
@@ -311,7 +299,7 @@ class PendingTasks extends Component {
     );
   };
 
-  addCreatedEvent() {
+  /*addCreatedEvent() {
     var lastEvent = new Object;
     var currentCulture = this.state.defaultCulture;
     var currentDeleteButtonText = this.state.defaultDeleteButtonText;
@@ -383,7 +371,7 @@ class PendingTasks extends Component {
     });
     var newEventsArray = [...this.state.events, lastEvent];
     this.setState({events : newEventsArray});
-  }
+  }*/
 };
 
 export default PendingTasks; 
