@@ -95,3 +95,7 @@
 .rbc-calendar .rbc-agenda-view .rbc-agenda-content .rbc-agenda-table tbody [rowspan] ~ td {
   border-top: 20px solid #fff !important;
 }
+
+.rbc-agenda-view table.rbc-agenda-table tbody > tr > td {
+  vertical-align: middle !important;
+}
