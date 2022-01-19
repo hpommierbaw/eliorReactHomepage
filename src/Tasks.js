@@ -75,7 +75,7 @@ function Event({ event }) {
 
   return (
     <OverlayTrigger id="help" trigger="click" rootClose container={this} placement="top" overlay={popoverClickRootClose}>
-      <div><span class="eventTitle">{event.title}</span><br/>{event.desc}</div>
+      <div><span class="eventTitle">{event.title}</span></div>
     </OverlayTrigger>
   );
 }
