@@ -87,98 +87,6 @@ class PendingTasks extends Component {
     this.state = {defaultCulture: '', defaultMessages: {}, defaultDeleteButtonText:'', events: []};
   };
 
-  /*refreshEvents() {
-    var eventsArray = [];
-    var currentDeleteButtonText = '';
-    var currentCulture = '';
-    if ($('#76a4a86c-fa4b-2ce5-3a59-e321023199b1_12e84390-7a82-8126-cb31-716bc0e84d1c .input-control span').html()=='FR'){
-    //if (/^fr\b/.test(navigator.language)) {
-      currentDeleteButtonText = 'SUPPRIMER';
-      var currentCulture = 'fr';
-    }else{
-      currentDeleteButtonText = 'DELETE';
-      var currentCulture = 'en';
-    }
-
-    $('div[name="CalendarDataTable"] .grid-body .grid-body-content tr').not('.empty-grid').each(function(){
-      var $this = $(this);
-      this.event = new Object;
-      var my_self = this;
-      $this.children("td").each(function( idx ) {
-        my_self.event.allDay=true;
-        my_self.event.deleteButtonText=currentDeleteButtonText;
-        switch(idx){
-          //ID
-          case 0:
-            my_self.event.id=$(this).data("options").value;
-            break;
-          //COUNTRY
-          case 1:
-            my_self.event.country=$(this).data("options").value;
-            break;
-          //BU
-          case 2:
-            my_self.event.bu=$(this).data("options").value;
-            break;
-          //ENTITY
-          case 3:
-            my_self.event.entity=$(this).data("options").value;
-            break;
-          //SITE
-          case 4:
-            my_self.event.site=$(this).data("options").value;
-            break;
-          //SAFE
-          case 5:
-            my_self.event.safe=$(this).data("options").value;
-            break;  
-          //START DATE
-          case 6:
-            my_self.event.start=$(this).data("options").value;
-            break;
-          //END DATE
-          case 7:
-            my_self.event.end=$(this).data("options").value;
-            break;
-          //TASK NAME FR
-          case 8:
-            if (currentCulture=='fr') {
-              my_self.event.title=$(this).data("options").value;
-            }
-            break;
-          //TASK NAME EN
-          case 9:
-            if (currentCulture=='en') {
-              my_self.event.title=$(this).data("options").value;
-            }
-            break;  
-          //TASK TYPE INSTANCE
-          case 10:
-            break;
-          //TASK TYPE ID
-          case 11:
-            break;
-          // TASK COLOR
-          case 12:
-            my_self.event.color=$(this).data("options").value;
-            break;
-          default:
-            console.log("Unbound value");    
-        }
-        my_self.event.desc= my_self.event.country +" / " + my_self.event.bu + " / " + my_self.event.entity + " / " + my_self.event.site;
-        if(my_self.event.safe != ""){
-          my_self.event.desc = my_self.event.desc + " / " + my_self.event.safe;
-        }
-      });
-      eventsArray.push(this.event);
-    });
-    if (eventsArray.length===0){
-      eventsArray = [...this.state.events];
-      eventsArray.splice(0,eventsArray.length); 
-    }
-    this.setState({events : eventsArray});
-  };*/
-
   componentDidMount() {
     var eventsArray = [];
     var currentCulture = '';
@@ -192,7 +100,7 @@ class PendingTasks extends Component {
       currentDefaultMessages = defaultMessages_en;
     }
     
-    $('div[name="homepageTasksList"] .grid-body .grid-body-content tr').not('.empty-grid').each(function(){
+    $('div[name="homepagePendingTasksList"] .grid-body .grid-body-content tr').not('.empty-grid').each(function(){
       var $this = $(this);
       this.event = new Object;
       var my_self = this;
@@ -234,13 +142,13 @@ class PendingTasks extends Component {
           //TASK NAME FR
           case 8:
             if (currentCulture=='fr') {
-              my_self.event.title=$(this).data("options").value;
+              my_self.event.title=$(this).data("options").value +" / "+ my_self.event.site; 
             }
             break;
           //TASK NAME EN
           case 9:
             if (currentCulture=='en') {
-              my_self.event.title=$(this).data("options").value;
+              my_self.event.title=$(this).data("options").value +" / "+ my_self.event.site;
             }
             break;  
           //TASK TYPE INSTANCE
@@ -278,7 +186,7 @@ class PendingTasks extends Component {
           //onEventDrop={this.onEventDrop}
           //onEventResize={this.onEventResize}
           //resizable
-          length={7}
+          length={30}
           culture={this.state.defaultCulture}
           style={{ height: "90vh" }}
           //resources={resourceMap}
@@ -298,80 +206,6 @@ class PendingTasks extends Component {
     </div>
     );
   };
-
-  /*addCreatedEvent() {
-    var lastEvent = new Object;
-    var currentCulture = this.state.defaultCulture;
-    var currentDeleteButtonText = this.state.defaultDeleteButtonText;
-    $('div[name="CalendarDataTable"] .grid-body .grid-body-content tr').not('.empty-grid').last().children("td").each(function( idx ) {
-      lastEvent.allDay=true;
-      lastEvent.deleteButtonText=currentDeleteButtonText;
-      switch(idx){
-        //ID
-        case 0:
-          lastEvent.id=$(this).data("options").value;
-          break;
-        //COUNTRY
-        case 1:
-          lastEvent.country=$(this).data("options").value;
-          break;
-        //BU
-        case 2:
-          lastEvent.bu=$(this).data("options").value;
-          break;
-        //ENTITY
-        case 3:
-          lastEvent.entity=$(this).data("options").value;
-          break;
-        //SITE
-        case 4:
-          lastEvent.site=$(this).data("options").value;
-          break;
-        //SAFE
-        case 5:
-          lastEvent.safe=$(this).data("options").value;
-          break;
-        //START DATE
-        case 6:
-          lastEvent.start=$(this).data("options").value;
-          break;
-        //END DATE
-        case 7:
-          lastEvent.end=$(this).data("options").value;
-          break;
-        //TASK NAME FR
-        case 8:
-          if (currentCulture=='fr') {
-            lastEvent.title=$(this).data("options").value;
-          }
-          break;
-        //TASK NAME EN
-        case 9:
-          if (currentCulture=='en') {
-            lastEvent.title=$(this).data("options").value;
-          }
-          break;  
-        //TASK TYPE INSTANCE
-        case 10:
-          break;
-        //TASK TYPE ID
-        case 11:
-          break;
-        // TASK COLOR
-        case 12:
-          lastEvent.color=$(this).data("options").value;
-          break;
-        default:
-          console.log("Unbound value");    
-      }
-      lastEvent.desc= lastEvent.country +" / " + lastEvent.bu + " / " + lastEvent.entity + " / " + lastEvent.site;
-      if(lastEvent.safe != ""){
-        lastEvent.desc = lastEvent.desc + " / " + lastEvent.safe;
-      }
-    });
-    var newEventsArray = [...this.state.events, lastEvent];
-    this.setState({events : newEventsArray});
-  }*/
 };
 
 export default PendingTasks; 
