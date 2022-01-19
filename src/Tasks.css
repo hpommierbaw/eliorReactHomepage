@@ -71,8 +71,8 @@
 }
 
 .rbc-calendar .rbc-toolbar .rbc-btn-group:last-of-type,
-.rbc-calendar .rbc-agenda-view .rbc-agenda-table,
-.rbc-calendar .rbc-agenda-view .rbc-agenda-table .rbc-header:nth-of-type(2),
+.rbc-calendar .rbc-agenda-view > .rbc-agenda-table,
+.rbc-calendar .rbc-agenda-view > .rbc-agenda-table .rbc-header:nth-of-type(2),
 .rbc-calendar .rbc-agenda-view .rbc-agenda-content .rbc-agenda-time-cell {
 /*.rbc-calendar .rbc-toolbar .rbc-toolbar-label {*/
   display: none !important;
@@ -93,5 +93,5 @@
 
 .rbc-calendar .rbc-agenda-view .rbc-agenda-content .rbc-agenda-table tbody [rowspan],
 .rbc-calendar .rbc-agenda-view .rbc-agenda-content .rbc-agenda-table tbody [rowspan] ~ td {
-  border-top: 10px solid #0073e6 !important;
+  border-top: 20px solid #fff !important;
 }
