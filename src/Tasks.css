@@ -80,11 +80,17 @@
 
 .rbc-calendar .rbc-agenda-view .rbc-agenda-empty{
   text-align: center !important;
+  padding-top: 50%;
+  font-family: "Segoe UI";
+  font-size: 14pt;
 }
 
 .rbc-calendar .rbc-agenda-view .rbc-agenda-content .rbc-agenda-date-cell {
   background-color: #fff !important;
   color: #333;
+  text-align: center !important;
+  font-family: "Segoe UI";
+  font-size: 10pt;
 }
 
 .rbc-calendar .rbc-agenda-view .rbc-agenda-content .rbc-agenda-table {
