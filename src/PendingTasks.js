@@ -290,6 +290,7 @@ class PendingTasks extends Component {
           //onEventDrop={this.onEventDrop}
           //onEventResize={this.onEventResize}
           //resizable
+          length={7}
           culture={this.state.defaultCulture}
           style={{ height: "90vh" }}
           //resources={resourceMap}
