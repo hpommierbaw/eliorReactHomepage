@@ -47,8 +47,6 @@ Après publication des modifications (sur un dépôt GitHub ou autre), récupér
 
 ## Intégration K2
 
-L'intégraiton est basée sur la méthode suivante : https://dudelisdev.com/2019/03/reactjs-k2-masonry.html
-
 1. Ajouter dans le formulaire / vue K2 un objet **Data Label** pour accueillir le script **bundle.js**
     1.   Mettre un nom (react-control-js par exemple).
     2.   Cocher la case **Literal**
